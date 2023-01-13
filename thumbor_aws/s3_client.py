@@ -173,7 +173,7 @@ class S3Client:
 
         async with self.get_client() as client:
             try:
-                raise Exception(f"Trying to find object acl {str}")
+                raise Exception(f"Trying to find object acl {filepath}")
                 await client.get_object_acl(
                     Bucket=self.bucket_name, Key=filepath
                 )
