@@ -1,4 +1,4 @@
-from urllib.parse import unquote
+from urllib.parse import quote
 
 def normalize_path(prefix: str, path: str) -> str:
     """Convert a URL received from Thumbor to a key in a S3 bucket."""
@@ -9,5 +9,5 @@ def normalize_path(prefix: str, path: str) -> str:
     if prefix:
         # Avoid double slash if prefix ends with a slash.
         prefix = prefix.rstrip("/")
-        return f"{prefix}/{path}"
-    return path
+        return f"{prefix}/{quote(path)}"
+    return quote(path)
