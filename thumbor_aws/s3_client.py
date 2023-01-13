@@ -172,6 +172,7 @@ class S3Client:
         """Detects whether an object exists in S3"""
 
         async with self.get_client() as client:
+            raise Exception(f"Trying to find object acl {filepath}")
             try:
                 await client.get_object_acl(
                     Bucket=self.bucket_name, Key=filepath
