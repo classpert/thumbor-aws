@@ -169,6 +169,7 @@ class Storage(storages.BaseStorage, S3Client):
 
     async def exists(self, path: str) -> bool:
         normalized_path = normalize_path(self.root_path, path)
+        logger.debug("[STORAGE] exists at %s ?", normalized_path)
         return await self.object_exists(normalized_path)
 
     async def remove(self, path: str):
